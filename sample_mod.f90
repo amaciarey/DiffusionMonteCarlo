@@ -313,8 +313,8 @@ contains
        open (unit=222,file='nr_dmc.out',status='unknown')
     end if
        
-    do ibin=1,Nbin-1
-       r   = (real(ibin-1)+0.5d0)*rbin
+    do ibin=1,Nbin
+       r   = (real(ibin)-0.5d0)*rbin
        nid = density*k_n*((r+0.5d0*rbin)**dim-(r-0.5d0*rbin)**dim)
        if (pur_est) then
           write (111,'(20g20.10e3)') r,gr(ibin)/(nid*norm)
@@ -421,7 +421,7 @@ contains
     open (unit=11,file='gr_dmc.out')
 
     do j=1,Nbin
-       r        = (real(j-1)+0.5d0)*rbin
+       r        = (real(j)-0.5d0)*rbin
        AvGr(j)  = AvGr(j)/real(Nitem)
        AvGr2(j) = AvGr2(j)/real(Nitem)
        VarGr(j) = Var(Nitem,AvGr(j),AvGr2(j))
@@ -473,7 +473,7 @@ contains
     open (unit=11,file='nr_dmc.out')
 
     do j=1,Nbin
-       r         = (real(j-1)+0.5d0)*rbin
+       r         = (real(j)-0.5d0)*rbin
        AvRho(j)  = AvRho(j)/real(Nitem)
        AvRho2(j) = AvRho2(j)/real(Nitem)
        VarRho(j) = Var(Nitem,AvRho(j),AvRho2(j))

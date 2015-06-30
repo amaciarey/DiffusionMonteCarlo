@@ -111,7 +111,7 @@ end do
 
 rcut  = minval(LboxHalf)
 rcut2 = rcut*rcut
-rbin  = rcut/real(Nbin-1)
+rbin  = rcut/real(Nbin)
 sigma = sqrt(dt)
 mu    = 0.d0
 in    = 1
@@ -349,8 +349,14 @@ do iblock=1,Nblock
  
       !Adjusting the reference energy to control the population
 
-      E0 = WalkerE+gamma*(1.d0-real(NwEnd)/real(NwCrit))/dt
-           
+      if (NwEnd >= 1.1d0*NwCrit) then
+         E0 = WalkerE+gamma*(1.d0-real(NwEnd)/real(NwCrit))/dt
+      else if (NwEnd <= 0.9d0*NwCrit) then
+         E0 = WalkerE+gamma*(1.d0-real(NwEnd)/real(NwCrit))/dt
+      else
+         E0 = WalkerE
+      end if
+
       !Swap old and new generations of walkers and update the number
       !of walkers and the reference energy
 

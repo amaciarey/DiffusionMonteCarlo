@@ -1,17 +1,17 @@
 2               # Dimensionality
-64       	# Number of particles
-280.d0	 	# Density of the system
+32       	# Number of particles
+256.d0	 	# Density of the system
 1.d0            # Strength of the potential
 100000		# Grid for the Jastrow factor
-300        	# Number of blocks
+200        	# Number of blocks
 100          	# Number of iteration per block
-0.03d-5	  	# Time step
+3.00d-6	  	# Time step
 1.d0 		# Parameter for the population control
 10            	# Initial number of walkers
 1000           	# Maximum number of walkers
-300      	# Critical number of walkers
+200      	# Critical number of walkers
 0.05d0      	# Parameter for the Jastrow function
-100		# Grid points to evaluate g(r),n(r)
+50		# Grid points to evaluate g(r),n(r)
 50              # Grid points to evaluate S(k)
 1		# 0 random ensemble of walkers 1 read previous ensemble
 1982            # seed of the random generator
